@@ -52,7 +52,7 @@
       <!-- modal -->
     @endif
   </div>
-  <div class="card-body pt-0">
+  <div class="card-body pt-0 pd-2">
     <h3 class="h4 card-title">
       <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
         {{ $article->title }}
@@ -60,6 +60,12 @@
     </h3>
     <div class="card-text">
       {{ $article->body }}
+    </div>
+  </div>
+  <div class="card-body pt-0 pb-2 pl-3">
+    <div class="card-text">
+      <article-like>
+      </article-like>
     </div>
   </div>
 </div>
