@@ -52,7 +52,7 @@
       <!-- modal -->
     @endif
   </div>
-  <div class="card-body pt-0 pd-2">
+  <div class="card-body pt-0 pd-2 pl-3">
     <h3 class="h4 card-title">
       <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
         {{ $article->title }}
@@ -64,7 +64,9 @@
   </div>
   <div class="card-body pt-0 pb-2 pl-3">
     <div class="card-text">
-      <article-like>
+      <article-like
+        :initial-is-liked-by='@json($article->isLikedBy(Auth::user()))'      
+      >
       </article-like>
     </div>
   </div>
