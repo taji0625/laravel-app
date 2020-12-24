@@ -23,4 +23,7 @@ Route::resource('/articles', ArticleController::class)->only(['show']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
- 
+Route::prefix('articles')->name('articles.')->group(function () {
+    Route::put('/{article}/like', [ArticleController::class, 'like'])->name('like')->middleware('auth');
+    Route::delete('/{article}/like', [ArticleController::class, 'unlike'])->name('unlike')->middleware('auth');
+});
