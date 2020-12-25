@@ -4,8 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+// require('./bootstrap');
 
-import './bootstrap'
+// import './bootstrap'
 import Vue from 'vue'
 import ArticleLike from './components/ArticleLike'
 import ArticleTagsInput from './components/ArticleTagsInput'
@@ -17,6 +18,7 @@ const app = new Vue({
     ArticleTagsInput,
   }
 })
+
 window.Vue = require('vue');
 
 /**

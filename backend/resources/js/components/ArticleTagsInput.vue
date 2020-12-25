@@ -22,21 +22,20 @@ export default {
   components: {
     VueTagsInput,
   },
+  props: {
+    initialTags: {
+      type: Array,
+      default: [],
+    },
+    autocompleteItems: {
+      type: Array,
+      default: [],
+    },
+  },
   data() {
     return {
       tag: '',
-      tags: [],
-      autocompleteItems: [{
-        text: 'Spain',
-      }, {
-        text: 'France',
-      }, {
-        text: 'USA',
-      }, {
-        text: 'Germany',
-      }, {
-        text: 'China',
-      }],
+      tags: this.initialTags,
     };
   },
   computed: {
