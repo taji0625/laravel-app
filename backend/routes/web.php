@@ -4,6 +4,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,17 @@ Route::prefix('articles')->name('articles.')->group(function () {
     Route::put('/{article}/like', [ArticleController::class, 'like'])->name('like')->middleware('auth');
     Route::delete('/{article}/like', [ArticleController::class, 'unlike'])->name('unlike')->middleware('auth');
 });
+
 Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
+
+Route::prefix('users')->name('users.')->group(function(){
+    Route::get('/{name}', [UserController::class, 'show'])->name('show');
+    Route::get('/{name}/likes', [UserController::class, 'likes'])->name('likes');
+    Route::get('/{name}/followings', [UserController::class, 'followings'])->name('followings');
+    Route::get('/{name}/followers', [UserController::class, 'followers'])->name('followers');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::put('/users/{name}/follow', [UserController::class, 'follow'])->name('users.follow');
+    Route::delete('/users/{name}/follow', [UserController::class, 'unfollow'])->name('users.unfollow');
+});

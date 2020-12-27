@@ -7,6 +7,7 @@
   <title>
     @yield('title')
   </title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <!-- Bootstrap core CSS -->
